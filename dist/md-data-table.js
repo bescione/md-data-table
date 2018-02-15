@@ -1289,6 +1289,8 @@ function mdTablePagination() {
   function Controller($attrs, $mdUtil, $scope) {
     var self = this;
     this.mdLabel = $attrs.mdLabel || {};
+
+    // NEW VERSION OF MD LABEL
     if($attrs.mdLabel && angular.isString($attrs.mdLabel)) {
       this.mdLabel = JSON.parse($attrs.mdLabel);
     }
@@ -1297,6 +1299,7 @@ function mdTablePagination() {
       rowsPerPage: this.mdLabel.rowsPerPage || 'Rows per page:',
       of: this.mdLabel.of || 'of'
     };
+    // END OF NEW VERSION OF MD LABEL
 
     self.label = angular.copy(defaultLabel);
 

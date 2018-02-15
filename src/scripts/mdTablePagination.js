@@ -10,10 +10,10 @@ function mdTablePagination() {
 
   function Controller($attrs, $mdUtil, $scope) {
     var self = this;
-    
+
     // NEW VERSION MD LABEL
-    this.mdLabel = $attrs.mdLabel || {};
-    if($attrs.mdLabel && angular.isString($attrs.mdLabel)) {
+    //this.mdLabel = $attrs.mdLabel || {};
+    if(this.mdLabel && angular.isString(this.mdLabel)) {
       this.mdLabel = JSON.parse($attrs.mdLabel);
     }
     var defaultLabel = {
@@ -100,9 +100,9 @@ function mdTablePagination() {
       self.onPaginationChange();
     });
 
-    $attrs.$observe('mdLabel', function (label) {
+    /*$attrs.$observe('mdLabel', function (label) {
       angular.extend(self.label, defaultLabel, $scope.$eval(label));
-    });
+    });*/
 
     $scope.$watch('$pagination.total', function (newValue, oldValue) {
       if(isNaN(newValue) || newValue === oldValue) {
@@ -126,7 +126,8 @@ function mdTablePagination() {
       pageSelect: '=?mdPageSelect',
       onPaginate: '=?mdOnPaginate',
       limitOptions: '=?mdLimitOptions',
-      total: '@mdTotal'
+      total: '@mdTotal',
+      mdLabel : '='
     },
     compile: compile,
     controller: Controller,
