@@ -1,7 +1,7 @@
 {
-  "name": "angular-material-data-table",
-  "version": "0.10.10",
-  "description": "Material Design data table.",
+  "name": "tr-angular-material-data-table",
+  "version": "0.0.1",
+  "description": "Material Design data table revisited for translations.",
   "main": [
     "dist/md-data-table.js",
     "dist/md-data-table.css"
@@ -30,6 +30,7 @@
   ],
   "dependencies": {
     "angular": "^1.4.0",
-    "angular-material": "^1.0.0"
+    "angular-material": "^1.0.0",
+    "angular-translate": "2.11.0"
   }
 }

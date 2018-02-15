@@ -1,5 +1,7 @@
-### Modified
+# Material Data Table Revisited
+I modified this project because the translations of customizable parts don't work as I wanted.
 
+_original repo description follows_
 # Material Design Data Table
 
 This module is an effort to implement Material Design data tables in [Angular Material](https://material.angularjs.org/latest/#/). Data tables are used to present raw data sets and usually appear in desktop enterprise applications. Data tables are particularly useful for visualizing and manipulating large data sets.
