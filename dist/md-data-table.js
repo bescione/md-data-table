@@ -9,7 +9,7 @@
 
 angular.module('md.table.templates', ['md-table-pagination.html', 'md-table-progress.html', 'arrow-up.svg', 'navigate-before.svg', 'navigate-first.svg', 'navigate-last.svg', 'navigate-next.svg']);
 
-angular.module('md-table-pagination.html', []).run(['$templateCache', function($templateCache) {
+angular.module('md-table-pagination.html', ['pascalprecht.translate']).run(['$templateCache', function($templateCache) {
   $templateCache.put('md-table-pagination.html',
     '<div class="page-select" ng-if="$pagination.showPageSelect()">\n' +
     '  <div class="label">{{$pagination.label.page}}</div>\n' +
@@ -1288,10 +1288,14 @@ function mdTablePagination() {
 
   function Controller($attrs, $mdUtil, $scope) {
     var self = this;
+    this.mdLabel = $attrs.mdLabel || {};
+    if($attrs.mdLabel && angular.isString($attrs.mdLabel)) {
+      this.mdLabel = JSON.parse($attrs.mdLabel);
+    }
     var defaultLabel = {
-      page: 'Page:',
-      rowsPerPage: 'Rows per page:',
-      of: 'of'
+      page: this.mdLabel.page || 'Page:',
+      rowsPerPage: this.mdLabel.rowsPerPage || 'Rows per page:',
+      of: this.mdLabel.of || 'of'
     };
 
     self.label = angular.copy(defaultLabel);
@@ -1370,9 +1374,9 @@ function mdTablePagination() {
       self.onPaginationChange();
     });
 
-    $attrs.$observe('mdLabel', function (label) {
+    /*$attrs.$observe('mdLabel', function (label) {
       angular.extend(self.label, defaultLabel, $scope.$eval(label));
-    });
+    });*/
 
     $scope.$watch('$pagination.total', function (newValue, oldValue) {
       if(isNaN(newValue) || newValue === oldValue) {
