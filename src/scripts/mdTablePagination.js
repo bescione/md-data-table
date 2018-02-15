@@ -12,6 +12,7 @@ function mdTablePagination() {
     var self = this;
 
     // NEW VERSION MD LABEL
+
     //this.mdLabel = $attrs.mdLabel || {};
     if(this.mdLabel && angular.isString(this.mdLabel)) {
       this.mdLabel = JSON.parse($attrs.mdLabel);
@@ -100,7 +101,7 @@ function mdTablePagination() {
       self.onPaginationChange();
     });
 
-    /*$attrs.$observe('mdLabel', function (label) {
+    /*I hate this part$attrs.$observe('mdLabel', function (label) {
       angular.extend(self.label, defaultLabel, $scope.$eval(label));
     });*/
 
