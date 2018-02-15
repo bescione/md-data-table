@@ -1288,10 +1288,10 @@ function mdTablePagination() {
 
   function Controller($attrs, $mdUtil, $scope) {
     var self = this;
-    this.mdLabel = $attrs.mdLabel || {};
+    //this.mdLabel = $attrs.mdLabel || {};
 
     // NEW VERSION OF MD LABEL
-    if($attrs.mdLabel && angular.isString($attrs.mdLabel)) {
+    if(this.mdLabel && angular.isString(this.mdLabel)) {
       this.mdLabel = JSON.parse($attrs.mdLabel);
     }
     var defaultLabel = {
@@ -1403,7 +1403,8 @@ function mdTablePagination() {
       pageSelect: '=?mdPageSelect',
       onPaginate: '=?mdOnPaginate',
       limitOptions: '=?mdLimitOptions',
-      total: '@mdTotal'
+      total: '@mdTotal',
+      mdLabel : '='
     },
     compile: compile,
     controller: Controller,
