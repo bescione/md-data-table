@@ -1,5 +1,6 @@
 # Material Data Table Revisited
 I modified this project because the translations of customizable parts don't work as I wanted.
+**Please note: this is still a beta version, don't use for production**
 
 _original repo description follows_
 # Material Design Data Table

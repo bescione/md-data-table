@@ -10,11 +10,19 @@ function mdTablePagination() {
 
   function Controller($attrs, $mdUtil, $scope) {
     var self = this;
+    
+    // NEW VERSION MD LABEL
+    this.mdLabel = $attrs.mdLabel || {};
+    if($attrs.mdLabel && angular.isString($attrs.mdLabel)) {
+      this.mdLabel = JSON.parse($attrs.mdLabel);
+    }
     var defaultLabel = {
-      page: 'Page:',
-      rowsPerPage: 'Rows per page:',
-      of: 'of'
+      page: this.mdLabel.page || 'Page:',
+      rowsPerPage: this.mdLabel.rowsPerPage || 'Rows per page:',
+      of: this.mdLabel.of || 'of'
     };
+    // END OF NEW VERSION MD LABEL
+
 
     self.label = angular.copy(defaultLabel);
 
