@@ -13,9 +13,9 @@ function mdTablePagination() {
 
     // NEW VERSION MD LABEL
 
-    //this.mdLabel = $attrs.mdLabel || {};
-    if(this.mdLabel && angular.isString(this.mdLabel)) {
-      this.mdLabel = JSON.parse($attrs.mdLabel);
+    this.mdLabel = this.mdLabel || {};
+    if(angular.isString(this.mdLabel)) {
+      this.mdLabel = JSON.parse(this.mdLabel);
     }
     var defaultLabel = {
       page: this.mdLabel.page || 'Page:',
@@ -101,9 +101,12 @@ function mdTablePagination() {
       self.onPaginationChange();
     });
 
-    /*I hate this part$attrs.$observe('mdLabel', function (label) {
+    /*
+    PART DELETED TO TRY AVOIDING THE OBSERVE AND SET MDLABEL DIRECTLY
+    $attrs.$observe('mdLabel', function (label) {
       angular.extend(self.label, defaultLabel, $scope.$eval(label));
-    });*/
+    });
+    */
 
     $scope.$watch('$pagination.total', function (newValue, oldValue) {
       if(isNaN(newValue) || newValue === oldValue) {

@@ -11,8 +11,8 @@
     "url": "git://github.com/daniel-nagy/md-data-table.git"
   },
   "authors": [
-    "Daniel Nagy",
-    "bescione"
+    "bescione",
+    "Daniel Nagy"
   ],
   "homepage": "http://danielnagy.me/md-data-table",
   "license": "MIT",
