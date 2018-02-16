@@ -2,7 +2,7 @@
  * Angular Material Data Table
  * https://github.com/daniel-nagy/md-data-table
  * @license MIT
- * v0.10.11
+ * v0.10.12
  */
 (function (window, angular, undefined) {
 'use strict';
@@ -1295,6 +1295,9 @@ function mdTablePagination() {
     if(angular.isString(this.mdLabel)) {
       this.mdLabel = JSON.parse(this.mdLabel);
     }
+    if(this.mdLabel.$$state) {
+      this.mdLabel = angular.copy(this.mdLabel.$$state.value) || this.mdLabel;
+    }
     var defaultLabel = {
       page: this.mdLabel.page || 'Page:',
       rowsPerPage: this.mdLabel.rowsPerPage || 'Rows per page:',
@@ -1409,7 +1412,7 @@ function mdTablePagination() {
       onPaginate: '=?mdOnPaginate',
       limitOptions: '=?mdLimitOptions',
       total: '@mdTotal',
-      mdLabel : '='
+      mdLabel : '=?'
     },
     compile: compile,
     controller: Controller,
